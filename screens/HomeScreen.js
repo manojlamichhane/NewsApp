@@ -7,6 +7,7 @@ import SplashScreen from '../components/SplashScreen';
 
 const HomeScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
+
   const [news, setNews] = useState([]);
   const [recentNews, setRecentNews] = useState([]);
   const [newsSources, setNewsSources] = useState([]);
@@ -25,7 +26,7 @@ const HomeScreen = () => {
     } catch (e) {
       console.log(e);
     }
-  }, [news.recentNews, newsSources]);
+  }, [news, recentNews, newsSources]);
 
   if (isLoading) {
     return <SplashScreen />;

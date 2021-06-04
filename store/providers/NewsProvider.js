@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {useState} from 'react';
+import {useEffect} from 'react';
 import NewsContext from '../contexts/NewsContext';
 
 const NewsProvider = props => {
@@ -43,6 +44,16 @@ const NewsProvider = props => {
   const selectNews = news => {
     setSelectedNews(news);
   };
+
+  useEffect(async () => {
+    try {
+      await getNewsFromApi();
+      await getRecentNewsFromApi();
+      await getSources();
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
 
   return (
     <NewsContext.Provider

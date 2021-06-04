@@ -3,20 +3,9 @@ import React, {useEffect, useContext} from 'react';
 import MainNavigator from './navigation/MainNavigator';
 import NewsProvider from './store/providers/NewsProvider';
 import {Provider as PaperProvider} from 'react-native-paper';
-import NewsContext from './store/contexts/NewsContext';
-import CateoryScreen from './screens/CategoryScreen';
+import SplashScreen from './components/SplashScreen';
 
 const App = () => {
-  const newsContext = useContext(NewsContext);
-
-  useEffect(async () => {
-    try {
-      await newsContext.getNewsFromApi();
-      console.log(newsContext.news);
-    } catch (e) {
-      console.log(e);
-    }
-  });
   return (
     <PaperProvider>
       <NewsProvider>
